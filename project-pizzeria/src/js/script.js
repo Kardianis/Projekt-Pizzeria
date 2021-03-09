@@ -54,7 +54,7 @@
     },
     // CODE ADDED END
   };
-
+  
   const classNames = {
     menuProduct: {
       wrapperActive: 'active',
@@ -66,7 +66,7 @@
     },
     // CODE ADDED END
   };
-
+  
   const settings = {
     amountWidget: {
       defaultValue: 1,
@@ -79,7 +79,7 @@
     },
     // CODE ADDED END
   };
-
+  
   const templates = {
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
     // CODE ADDED START
