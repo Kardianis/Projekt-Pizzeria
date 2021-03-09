@@ -183,6 +183,7 @@
         for(let optionId in param.options){
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
+          console.log(option);
           // check if there is param with a name of paramId in formData and if it includes optionId
           //if(formData[paramId] && formData[paramId].includes(optionId)){
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
@@ -217,7 +218,8 @@
       price *= thisProduct.amountWidget.value;
 
       // update calculated price in the HTML
-      thisProduct.priceElem.innerHTML = price;
+      thisProduct.priceElem[0].innerHTML = price;
+      console.log(this.priceElem);
     }
 
     initAmountWidget(){
