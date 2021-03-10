@@ -418,7 +418,7 @@
         thisCart.totalNumber += product.amount;
         thisCart.subTotalPrice += product.price;
       }
-      if (thisCart.totalNumber !== 0) {
+      if (thisCart.totalNumber == 0) {
         thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
       }
       else {
