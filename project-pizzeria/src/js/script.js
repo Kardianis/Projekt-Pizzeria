@@ -383,17 +383,6 @@
         thisCart.remove(event.detail.cartProduct);
       });
 
-
-      /*thisCart.dom.toggleTrigger.addEventListener('click', function(event){
-        event.preventDefault(); //usunąć event i default
-        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
-      });
-      thisCart.dom.productList.addEventListener('updated', function(){
-        thisCart.update();
-      });
-      thisCart.dom.productList.addEventListener('remove', function(event){
-        thisCart.remove(event.detail.cartProduct);
-      });*/
     }
 
     add(menuProduct){
@@ -437,11 +426,6 @@
         thisCart.deliveryFee = 0;
       }
       thisCart.totalPrice = thisCart.deliveryFee + thisCart.subTotalPrice;
-
-      /*thisCart.dom.deliveryFee.innerHTML = thisCart.deliveryFee;
-      thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
-      thisCart.dom.subTotalPrice.innerHTML = thisCart.subTotalPrice;*/
-      //thisCart.dom.totalPrice.innerHTML = thisCart.totalPrice;
 
       for(let price of thisCart.dom.totalPrice){
         price.innerHTML = thisCart.totalPrice;
