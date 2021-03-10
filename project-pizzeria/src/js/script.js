@@ -368,13 +368,6 @@
       thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelectorAll(select.cart.totalPrice);
       thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelectorAll(select.cart.totalNumber);
 
-      /* thisCart.dom.wrapper = element;
-      thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger);
-      thisCart.dom.productList = element.querySelector(select.cart.productList);
-      thisCart.dom.deliveryFee = element.querySelectorAll(select.cart.deliveryFee);
-      thisCart.dom.subTotalPrice = element.querySelectorAll(select.cart.subTotalPrice);
-      thisCart.dom.totalPrice = element.querySelectorAll(select.cart.totalPrice);
-      thisCart.dom.totalNumber = element.querySelectorAll(select.cart.totalNumber);*/
     }
 
     initActions(){
