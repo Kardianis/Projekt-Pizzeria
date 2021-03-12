@@ -78,6 +78,11 @@
       defaultDeliveryFee: 20,
     },
     // CODE ADDED END
+    db: {
+      url: '//localhost:3131',
+      product: 'product',
+      order: 'order',
+    },
   };
  
   const templates = {
@@ -239,7 +244,6 @@
  
     prepareCartProduct(){
       const thisProduct = this;
-debugger;
       const productSummary = {
         id: thisProduct.id,
         name: thisProduct.data.name,
@@ -248,7 +252,6 @@ debugger;
         price: Number(thisProduct.priceElem.innerHTML),
         params: thisProduct.prepareCartProductParams(),
       };
-      debugger;
       return productSummary;
     }
  
@@ -368,6 +371,7 @@ debugger;
       thisCart.dom.subTotalPrice = thisCart.dom.wrapper.querySelector(select.cart.subTotalPrice);
       thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelectorAll(select.cart.totalPrice);
       thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelectorAll(select.cart.totalNumber);
+      thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
  
     }
  
@@ -383,6 +387,7 @@ debugger;
       thisCart.dom.productList.addEventListener('remove', function(event){
         thisCart.remove(event.detail.cartProduct);
       });
+      thisCart.dom.form.addEventListener('submit');
  
     }
  
@@ -523,14 +528,27 @@ debugger;
       const thisApp = this;
  
       for(let productData in thisApp.data.products){
-        new Product(productData, thisApp.data.products[productData]);
+        new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
       }
     },
  
     initData: function(){
       const thisApp = this;
- 
-      thisApp.data = dataSource;
+      const url = settings.db.url + '/' + settings.db.product;
+      thisApp.data = {};
+
+      fetch(url)
+        .then(function(rawResponse){
+          return rawResponse.json();
+        })
+        .then(function(parsedResponse){
+          console.log('parsedResponse', parsedResponse);
+          /* save parsedResponse as thisApp.data.products*/
+
+          /* execute initMenu method*/
+      });
+
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
  
     initCart: function(){
