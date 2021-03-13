@@ -533,7 +533,7 @@
 
     initData: function () {
       const thisApp = this;
-      const url = settings.db.url + '/' + settings.db.product;
+      const url = settings.db.url + '/' + settings.db.products;
       thisApp.data = {};
 
       fetch(url)
