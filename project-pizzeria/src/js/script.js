@@ -353,7 +353,7 @@
       const thisCart = this;
 
       thisCart.products = [];
-
+      
       thisCart.getElements(element);
       thisCart.initActions();
       thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
@@ -387,8 +387,15 @@
       thisCart.dom.productList.addEventListener('remove', function (event) {
         thisCart.remove(event.detail.cartProduct);
       });
-
+      thisCart.dom.form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        thisCart.sendOrder();
+      });
     }
+    sendOrder(){
+      const thisCart = this;
+      const url = settings.db.url + '/' + settings.db.order;
+    };
 
     add(menuProduct) {
       const thisCart = this;
@@ -533,7 +540,7 @@
 
     initData: function () {
       const thisApp = this;
-      const url = settings.db.url + '/' + settings.db.product;
+      const url = settings.db.url + '/' + settings.db.products;
       thisApp.data = {};
 
       fetch(url)
