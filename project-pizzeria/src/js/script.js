@@ -39,7 +39,7 @@
       toggleTrigger: '.cart__summary',
       totalNumber: `.cart__total-number`,
       totalPrice: '.cart__total-price strong, .cart__order-total .cart__order-price-sum strong',
-      subtotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
+      subTotalPrice: '.cart__order-subtotal .cart__order-price-sum strong',
       deliveryFee: '.cart__order-delivery .cart__order-price-sum strong',
       form: '.cart__order',
       formSubmit: '.cart__order [type="submit"]',
@@ -80,7 +80,7 @@
     // CODE ADDED END
     db: {
       url: '//localhost:3131',
-      product: 'product',
+      products: 'products',
       order: 'order',
     },
   };
@@ -392,10 +392,10 @@
         thisCart.sendOrder();
       });
     }
-    sendOrder(){
-      const thisCart = this;
-      const url = settings.db.url + '/' + settings.db.order;
-    };
+    // sendOrder(){
+    //   const thisCart = this;
+    //   const url = settings.db.url + '/' + settings.db.order;
+    // };
 
     add(menuProduct) {
       const thisCart = this;
@@ -434,6 +434,8 @@
       if (thisCart.totalNumber === 0) {
         thisCart.totalPrice = 0;
         thisCart.deliveryFee = 0;
+        thisCart.subTotalPrice = 0;
+        thisCart.dom.subTotalPrice.innerHTML = 0;
         thisCart.dom.deliveryFee.innerHTML = 0;
 
         for (let price of thisCart.dom.totalPrice) {
@@ -442,9 +444,9 @@
 
       } else {
         thisCart.totalPrice = thisCart.deliveryFee + thisCart.subTotalPrice;
-
+        
         thisCart.dom.deliveryFee.innerHTML = settings.cart.defaultDeliveryFee;
-
+        thisCart.dom.subTotalPrice.innerHTML = thisCart.subTotalPrice;
         for (let price of thisCart.dom.totalPrice) {
           price.innerHTML = thisCart.totalPrice;
         }//zliczanie ceny
@@ -550,8 +552,9 @@
         .then(function (parsedResponse) {
           console.log('parsedResponse', parsedResponse);
           /* save parsedResponse as thisApp.data.products*/
-
+          thisApp.data.products = parsedResponse;
           /* execute initMenu method*/
+          thisApp.initMenu();
         });
 
       console.log('thisApp.data', JSON.stringify(thisApp.data));
