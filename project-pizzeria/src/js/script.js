@@ -79,7 +79,7 @@
     // CODE ADDED END
     db: {
       url: '//localhost:3131',
-      product: 'product',
+      products: 'product',
       order: 'order',
     },
   };
@@ -577,9 +577,9 @@
       const thisApp = this;
       thisApp.data = {};
       
-      const url = settings.db.url + '/' + settings.db.product;
+      const url = settings.db.url + '/' + settings.db.products;
 
-      fetch(url, options)
+      fetch(url)
         .then(function(rawResponse){
           return rawResponse.json();
         }) .then(function(parsedResponse){
