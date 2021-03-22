@@ -576,7 +576,7 @@
     initData: function(){
       const thisApp = this;
       thisApp.data = {};
-
+      
       const url = settings.db.url + '/' + settings.db.product;
 
       fetch(url, options)
