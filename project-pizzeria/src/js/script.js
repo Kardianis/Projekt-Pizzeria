@@ -79,7 +79,7 @@
     // CODE ADDED END
     db: {
       url: '//localhost:3131',
-      products: 'product',
+      products: 'products',
       order: 'order',
     },
   };
