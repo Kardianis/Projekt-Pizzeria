@@ -1,6 +1,6 @@
-class BaseWidget{
+class BaseWidget {
 
-  constructor(wrapperElement, initialValue){
+  constructor(wrapperElement, initialValue) {
     const thisWidget = this;
 
     thisWidget.dom = {};
@@ -9,18 +9,18 @@ class BaseWidget{
     thisWidget.correctValue = initialValue;
   }
 
-  get value(){ // get value jest getterem czyli metodą wykonywana przyk kazdej probie odczytania właściwoxsci  value
+  get value() { // get value jest getterem czyli metodą wykonywana przyk kazdej probie odczytania właściwoxsci  value
     const thisWidget = this;
 
     return thisWidget.correctValue;
   }
 
-  set value(value){ // setter - metoda wykonywana przy kazdej próbie ustawienia nowej wartosci dla właciwosci value
+  set value(value) { // setter - metoda wykonywana przy kazdej próbie ustawienia nowej wartosci dla właciwosci value
     const thisWidget = this;
 
     const newValue = thisWidget.parseValue(value);
 
-    if(newValue !== thisWidget.correctValue && thisWidget.isValid(newValue)){
+    if (newValue !== thisWidget.correctValue && thisWidget.isValid(newValue)) {
       thisWidget.correctValue = newValue;
       thisWidget.announce();
     }
@@ -28,27 +28,27 @@ class BaseWidget{
     thisWidget.renderValue();
   }
 
-  setValue(value){
+  setValue(value) {
     const thisWidget = this;
 
     thisWidget.value = value;
   }
 
-  parseValue(value){
+  parseValue(value) {
     return parseInt(value);
   }
 
-  isValid(value){
+  isValid(value) {
     return !isNaN(value);
   }
 
-  renderValue(){
+  renderValue() {
     const thisWidget = this;
 
     thisWidget.dom.wrapper.innerHTML = thisWidget.value;
   }
 
-  announce(){
+  announce() {
     const thisWidget = this;
 
     const event = new CustomEvent('updated', {

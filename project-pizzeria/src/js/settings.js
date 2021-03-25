@@ -5,7 +5,7 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product',
     bookingWidget: '#template-booking-widget',
-    homeWidget:  '#template-home-widget'
+    homeWidget: '#template-home-widget'
   },
   containerOf: {
     menu: '#product-list',
