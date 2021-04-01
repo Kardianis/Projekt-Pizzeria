@@ -13,7 +13,7 @@
         "test:html": "globstar nu-html-checker dist/*.html",
         "test:js": "eslint src/js/ --fix",
         "build": "npm-run-all build:* test",
-        "build:clean": "mkdirp dist && rd /s /q dist && mkdirp dist",
+        "build:clean": "rm -rf dist && mkdirp dist",
         "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
         "build:sass": "node-sass --output-style compact -o dist/css src/sass",
         "build:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
